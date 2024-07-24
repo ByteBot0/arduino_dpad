@@ -7,9 +7,6 @@ U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R2, SCL, SDA, U8X8_PIN_NONE);
 //dpad input pin
 int analogPin = 0;
 
-//dpad analogRead value
-int dpadInput = 0;
-
 // To store analogRead(analogPin) value
 int raw = 0;
 

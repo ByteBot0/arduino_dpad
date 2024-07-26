@@ -23,7 +23,7 @@ Button layout:
    4       5
 
 */
-// Set button high and low values based on what R= is returning on the screen
+// Set button high and low values based on what R= is returning on the screen or serial monitor
 bool button1; int button1Low = 624; int button1High = 650;
 
 bool button2; int button2Low = 515; int button2High = 537;
@@ -40,12 +40,12 @@ bool button6; int button6Low = 110; int button6High = 116;
 
 void setup() {
   u8g2.begin();
+  Serial.begin(9600);
 }
 
 
 void loop() {
-  // clear the internal memory
-  u8g2.clearBuffer();
+  u8g2.clearBuffer(); // clear the internal memory
   raw = analogRead(analogPin);
 
   // If button is in High-Low range then button click = true
@@ -95,19 +95,29 @@ void loop() {
     button6 = false;
   }
 
+  
+  // Prevent snowman from exploding. Comment out if you'd like
+  if (rotate == 4) {
+    rotate = 0;
+  }
+
   //default snowman to test move
   u8g2.setFont(u8g2_font_unifont_t_symbols);
   u8g2.setFontDirection(rotate);
   u8g2.drawGlyph(horizontal+60, vertical+35, 0x2603);
 
-  // Print R= ...
-  u8g2.setFont(u8g2_font_squeezed_b6_tr);
+  // Print R= ... on screen
   u8g2.setFontDirection(0);
   u8g2.setCursor(3, 62);
   u8g2.print("R= ");
-  u8g2.setCursor(15, 62);
+  u8g2.setCursor(20, 62);
   u8g2.print(raw);
   u8g2.sendBuffer();
-  delay(1);
+  
+  // Print to serial to use without screen
+  Serial.print("Raw: ");
+  Serial.println(raw);
+   
+  delay(100);
 
 }

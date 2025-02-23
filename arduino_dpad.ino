@@ -11,8 +11,8 @@ int analogPin = 0;
 int raw = 0;
 
 // Pixel location
-int vertical = 0;
-int horizontal = 0;
+int vertical = 35;
+int horizontal = 60;
 int rotate = 0;
 
 /*
@@ -48,53 +48,26 @@ void loop() {
   u8g2.clearBuffer(); // clear the internal memory
   raw = analogRead(analogPin);
 
-  // If button is in High-Low range then button click = true
+  // If button is in High-Low range then move
   if ((raw >= button1Low) && (raw <= button1High)) {
-    button1 = true;
+    horizontal -= 10;
   }
   if ((raw >= button2Low) && (raw <= button2High)) {
-    button2 = true;
+    vertical -= 10;
   }
   if ((raw >= button3Low) && (raw <= button3High)) {
-    button3 = true;
+    horizontal += 10;
   }
   if ((raw >= button4Low) && (raw <= button4High)) {
-    button4 = true;
+    vertical += 10;
   }
   if ((raw >= button5Low) && (raw <= button5High)) {
-    button5 = true;
+    rotate += 1;
   }
   if ((raw >= button6Low) && (raw <= button6High)) {
-    button6 = true;
-  }
-
-// If button clicked then... Set button back to false when done
-  if (button1 == true) {
-    horizontal -= 10;
-    button1 = false;
-  }
-    if (button2 == true) {
-    vertical -= 10;
-    button2 = false;
-  }
-    if (button3 == true) {
-    horizontal += 10;
-    button3 = false;
-  }
-    if (button4 == true) {
-    vertical += 10;
-    button4 = false;
-  }
-    if (button5 == true) {
-    rotate += 1;
-    button5 = false;
-  }
-    if (button6 == true) {
     vertical = 25;
     horizontal = 50;
-    button6 = false;
   }
-
   
   // Prevent snowman from exploding. Comment out if you'd like
   if (rotate == 4) {
@@ -104,7 +77,7 @@ void loop() {
   //default snowman to test move
   u8g2.setFont(u8g2_font_unifont_t_symbols);
   u8g2.setFontDirection(rotate);
-  u8g2.drawGlyph(horizontal+60, vertical+35, 0x2603);
+  u8g2.drawGlyph(horizontal, vertical, 0x2603);
 
   // Print R= ... on screen
   u8g2.setFontDirection(0);

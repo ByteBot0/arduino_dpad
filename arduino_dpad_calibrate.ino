@@ -1,3 +1,6 @@
+//Lighter, faster, and lets you calibrate buttons and view the current values.
+//Nice to have when using different power sources for the Arduino.
+
 #include <Arduino.h>
 #include <stdio.h>
 #include <Adafruit_GFX.h>

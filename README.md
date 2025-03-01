@@ -3,8 +3,8 @@ Many buttons to one analog
 
 1. Build the dpad and use a different resistor for each button.
 2. Skip 3 and 4 by using the ![arduino_dpad_calibrate.ino](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad_calibrate.ino) file and press the calibrate button.
-3. Or for a minimal dpad use ![arduino_dpad](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad.ino) and press the buttons to get analogRead(analogPin) values (R= on screen or serial monitor).
-4. Then edit ![arduino_dpad](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad.ino) using the R values to map and test buttons.
+3. Or for a minimal dpad use ![arduino_dpad.ino](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad.ino) and press the buttons to get analogRead(analogPin) values (R= on screen or serial monitor).
+4. Then edit ![arduino_dpad.ino](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad.ino) using the R values to map and test buttons.
 
 ​​  
 ​  
@@ -22,7 +22,7 @@ Many buttons to one analog
 ​  
 ​  
 ​  
-#### Next, this shows the screen and battery. It also shows the R= value from the ![arduino_dpad](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad.ino) file that you can use to map your buttons.
+#### This shows the screen and battery. It also shows the R= value from the ![arduino_dpad](https://github.com/ByteBot0/arduino_dpad/blob/main/arduino_dpad.ino) file that you can use to map your buttons.
 ![dpad_display](https://github.com/user-attachments/assets/42dfc65c-e705-4b3c-983e-e438503a96a3)
   
 ​  
